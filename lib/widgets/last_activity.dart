@@ -61,7 +61,68 @@ class LastActivityCard extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ),
+              SizedBox(
+                width: 40,
+              ),
+              Expanded(
+                  child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                            text: '4199',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 0, 0, 0))),
+                        TextSpan(
+                            text: '  steps',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Color.fromARGB(255, 150, 150, 150))),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 8,),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                            text: '19',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 0, 0, 0))),
+                        TextSpan(
+                            text: '  min',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Color.fromARGB(255, 150, 150, 150))),
+                        TextSpan(
+                            text: '  32',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 0, 0, 0))),
+                        TextSpan(
+                            text: '  sec',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Color.fromARGB(255, 150, 150, 150))),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 8,),
+                  Text('26226*',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 0, 0, 0)))
+                ],
+              ))
             ],
           )),
     );

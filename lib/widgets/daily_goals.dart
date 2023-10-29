@@ -44,7 +44,7 @@ class GoalCard extends StatelessWidget {
         margin: EdgeInsets.only(left: 16, bottom: 10, top: 16),
         child: Container(
           padding: EdgeInsets.all(12.0),
-          width: 150,
+          width: 160,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
