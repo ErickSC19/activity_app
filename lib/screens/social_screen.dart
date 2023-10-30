@@ -1,3 +1,4 @@
+import 'package:activity_app/widgets/social_hero.dart';
 import 'package:flutter/material.dart';
 
 class SocialScreen extends StatelessWidget {
@@ -5,6 +6,12 @@ class SocialScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: ListView(
+        children: [
+          SocialHero()
+        ],
+      ),
+    );
   }
 }

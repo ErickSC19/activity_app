@@ -1,4 +1,3 @@
-import 'package:activity_app/widgets/last_activity.dart';
 import 'package:activity_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 

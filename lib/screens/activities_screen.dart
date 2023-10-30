@@ -1,3 +1,4 @@
+import 'package:activity_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ActivitiesScreen extends StatelessWidget {
@@ -5,6 +6,14 @@ class ActivitiesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: ListView(
+        children: [
+          ActivitiesHero(),
+          Activities(),
+          PlayButton()
+        ],
+      ),
+    );
   }
 }

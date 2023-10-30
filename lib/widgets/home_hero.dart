@@ -27,11 +27,12 @@ class HomeHero extends StatelessWidget {
           margin: EdgeInsets.only(bottom: 20),
         ),
         Container(
+            transform: Matrix4.translationValues(0, -30, 0),
             decoration: const BoxDecoration(
               color: Color.fromRGBO(0, 0, 0, 1),
             ),
             width: double.infinity,
-            height: 151),
+            height: 181),
         Container(
           transform: Matrix4.translationValues(0, 150, 0),
           decoration: const BoxDecoration(
@@ -68,7 +69,7 @@ class HomeHero extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 80, fontWeight: FontWeight.w900)),
                         TextSpan(
-                            text: ' steps', style: TextStyle(fontSize: 16)),
+                            text: ' steps', style: TextStyle(fontSize: 16, color: Color.fromARGB(255, 150, 150, 150))),
                       ],
                     ),
                   ),
@@ -88,7 +89,7 @@ class HomeHero extends StatelessWidget {
                                         fontWeight: FontWeight.bold)),
                                 TextSpan(
                                     text: ' km',
-                                    style: TextStyle(fontSize: 12)),
+                                    style: TextStyle(fontSize: 12, color: Color.fromARGB(255, 150, 150, 150))),
                               ],
                             ),
                           ),
@@ -105,7 +106,7 @@ class HomeHero extends StatelessWidget {
                                         fontWeight: FontWeight.bold)),
                                 TextSpan(
                                     text: ' Cal',
-                                    style: TextStyle(fontSize: 12)),
+                                    style: TextStyle(fontSize: 12, color: Color.fromARGB(255, 150, 150, 150))),
                               ],
                             ),
                           ),
