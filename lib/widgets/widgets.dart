@@ -5,3 +5,5 @@ export 'package:activity_app/widgets/activities_hero.dart';
 export 'package:activity_app/widgets/activities.dart';
 export 'package:activity_app/widgets/play_button.dart';
 export 'package:activity_app/widgets/social_hero.dart';
+export 'package:activity_app/widgets/statistics_bubble.dart';
+export 'package:activity_app/widgets/activity_button.dart';

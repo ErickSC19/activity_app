@@ -36,7 +36,7 @@ class LastActivityCard extends StatelessWidget {
     return Card(
       margin: EdgeInsets.symmetric(vertical: 16),
       child: Container(
-          padding: EdgeInsets.all(8),
+          padding: EdgeInsets.all(10),
           child: Row(
             children: [
               Column(
