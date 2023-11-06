@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class StatisticsBubble extends StatelessWidget {
-  const StatisticsBubble({super.key});
+  const StatisticsBubble({this.count=479354, this.desc="Total \n Steps", super.key});
+
+  final String desc;
+  final num count;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,8 @@ class StatisticsBubble extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "479 354",
+            "${count}",
+            textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -24,7 +28,8 @@ class StatisticsBubble extends StatelessWidget {
             height: 5,
           ),
           Text(
-            "Total \n Steps",
+            desc,
+            textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 14,
               color: Color.fromARGB(255, 150, 150, 150),

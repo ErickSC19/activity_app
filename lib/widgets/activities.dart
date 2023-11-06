@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class Activities extends StatelessWidget {
@@ -19,13 +21,22 @@ class Activities extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
-            height: 130,
+            height: 141,
             child: Row(
               children: [
-                ActivityCard(),
-                ActivityCard(),
-                ActivityCard(),
-                ActivityCard()
+                ActivityCard(
+                  activity: "Outdoor Running",
+                ),
+                ActivityCard(
+                  activity: "Treadmill",
+                ),
+                ActivityCard(
+                  activity: "Outdoor Cycling",
+                ),
+                ActivityCard(
+                  activity: "Walking",
+                  selected: true,
+                )
               ],
             ),
           )
@@ -36,31 +47,49 @@ class Activities extends StatelessWidget {
 }
 
 class ActivityCard extends StatelessWidget {
-  const ActivityCard({super.key});
+  const ActivityCard(
+      {required this.activity, this.selected = false, super.key});
+
+  final String activity;
+  final bool selected;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         top: 16,
         right: 10,
       ),
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         width: 80,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Icon(
               Icons.directions_walk_outlined,
-              color: Color.fromARGB(255, 0, 0, 0),
+              color: selected
+                  ? Color.fromARGB(255, 255, 255, 255)
+                  : const Color.fromARGB(255, 0, 0, 0),
               size: 50,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text("Walking")
+            Text(
+              activity,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: selected
+                    ? Color.fromARGB(255, 255, 255, 255)
+                    : Color.fromARGB(255, 0, 0, 0),
+              ),
+            )
           ],
         ),
+        color: selected
+            ? const Color.fromRGBO(253, 148, 20, 1)
+            : const Color.fromARGB(0, 0, 0, 0),
       ),
     );
   }

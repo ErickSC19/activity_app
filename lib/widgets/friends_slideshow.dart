@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:activity_app/ui/ui.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FriendsSlideShow extends StatelessWidget {
   const FriendsSlideShow({super.key});
@@ -30,7 +30,13 @@ class FriendsSlideShow extends StatelessWidget {
           width: double.infinity,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: [FriendCard(), FriendCard(), FriendCard(), FriendCard(), FriendCard()],
+            children: [
+              FriendCard(uid: "1KiqQ1RsyWO5TtHDMmed"),
+              FriendCard(uid: "35ZY4tHtujMSwXu1747z"),
+              FriendCard(uid: "IwAHexXWCuvij4o5594b"),
+              FriendCard(uid: "x8xatEcYvPGDTx2G8crQ"),
+              FriendCard(uid: "bn0K4UGRPvqq6Hr3052d")
+            ],
           ),
         )
       ],
@@ -38,32 +44,67 @@ class FriendsSlideShow extends StatelessWidget {
   }
 }
 
+//const db = getFirestore(app);
+
 class FriendCard extends StatelessWidget {
-  const FriendCard({super.key});
+  const FriendCard({this.uid = "1KiqQ1RsyWO5TtHDMmed", super.key});
+
+  final String uid;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 10),
-      width: 75,
-      child: Column(
-        children: [
-          SizedBox(
-            height: 5,
-          ),
-          CircleAvatar(
-            backgroundColor: Color(0x000),
-            backgroundImage: AssetImage('./assets/profile.png'),
-            radius: 30.0,
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Text(
-            "Andrew",
-          )
-        ],
-      ),
-    );
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    return FutureBuilder<DocumentSnapshot>(
+        future: users.doc(uid).get(),
+        builder:
+            (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            //error
+            if (snapshot.hasError) {
+              return const Text("Something went wrong");
+            }
+            //empty
+            if (snapshot.hasData && !snapshot.data!.exists) {
+              return const Text("Document does not exist");
+            }
+            //success
+            if (snapshot.connectionState == ConnectionState.done) {
+              Map<String, dynamic> data =
+                  snapshot.data!.data() as Map<String, dynamic>;
+              return Container(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                width: 75,
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    CircleAvatar(
+                      backgroundColor: Color(0x000),
+                      backgroundImage: NetworkImage(data['profile_img']),
+                      radius: 30.0,
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      data['username'],
+                    )
+                  ],
+                ),
+              );
+            }
+
+            //loading
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            //loading
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
   }
 }

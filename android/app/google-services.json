@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "890737939202",
+    "project_id": "activityapp-fcc45",
+    "storage_bucket": "activityapp-fcc45.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890737939202:android:73c6d73890864cb3b4681b",
+        "android_client_info": {
+          "package_name": "com.example.activity_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdEXdpmUuewsYcWJWHGGhd9l0HAKkR0PY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
